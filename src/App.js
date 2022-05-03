@@ -4,6 +4,9 @@ import OrderNameInput from './OrderNameInput';
 import OrderImages from './OrderImages';
 import InstructionsForm from './InstructionsForm';
 import InstructionsList from './InstructionsList';
+import FoodDropdown from './FoodDropdown';
+import SideDropdown from './SideDropdown';
+import DrinkDropdown from './DrinkDropdown';
 
 function App() {
 
@@ -24,6 +27,11 @@ function App() {
         <OrderNameInput handleNameChange={handleNameChange}/>
       </header>
       <OrderImages foodId={foodId} sideId={sideId} drinkId={drinkId} />
+      <FoodDropdown setFoodId={setFoodId} />
+      <SideDropdown setSideId={setSideId} />
+      <DrinkDropdown setDrinkId={setDrinkId} />
+
+
       <InstructionsForm />
       <InstructionsList />
     </div>
