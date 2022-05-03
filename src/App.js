@@ -23,13 +23,18 @@ function App() {
   return (
     <div className="App">
       <header>
+        <h2>
         Hello {orderName} !
+        </h2>
         <OrderNameInput handleNameChange={handleNameChange}/>
       </header>
       <OrderImages foodId={foodId} sideId={sideId} drinkId={drinkId} />
-      <FoodDropdown setFoodId={setFoodId} />
-      <SideDropdown setSideId={setSideId} />
-      <DrinkDropdown setDrinkId={setDrinkId} />
+      
+      <section className="selectors">
+        <FoodDropdown setFoodId={setFoodId} />
+        <SideDropdown setSideId={setSideId} />
+        <DrinkDropdown setDrinkId={setDrinkId} />
+      </section>
 
 
       <InstructionsForm />

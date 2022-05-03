@@ -42,3 +42,14 @@ img {
   margin: 15px;
 }
 
+.selectors {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown {
+  margin: 50px;
+}
+

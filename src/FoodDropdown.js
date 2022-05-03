@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function FoodDropdown({ setFoodId }) {
   return (
-    <div>Entree: 
+    <div className='dropdown'>Entree: 
       <select onChange={(e) => setFoodId(e.target.value)}>
         <option value='1'>Pizza</option>
         <option value='2'>Tacos</option>
