@@ -1,7 +1,16 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [orderName, setOrderName] = useState('');
+  const [foodId, setFoodId] = useState(1);
+  const [sideId, setSideId] = useState(1);
+  const [drinkId, setDrinkId] = useState(1);
+  const [instructions, setInstructions] = useState(['']);
+
+
+  
   return (
     <div className="App">
       <header className="App-header">
