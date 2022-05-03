@@ -15,10 +15,21 @@ function App() {
   const [sideId, setSideId] = useState(1);
   const [drinkId, setDrinkId] = useState(1);
   const [instructions, setInstructions] = useState(['']);
+  const [instructionsInput, setInstructionsInput] = useState('');
 
   function handleNameChange(e) {
     setOrderName(e.target.value);
   }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    instructions.push(instructionsInput);
+    setInstructions([...instructions]);
+    setInstructionsInput('');
+    
+  }
+
+
 
   return (
     <div className="App">
@@ -36,9 +47,12 @@ function App() {
         <DrinkDropdown setDrinkId={setDrinkId} />
       </section>
 
+      <section className='notes'>
+        <InstructionsList />
+        <InstructionsForm handleSubmit={handleSubmit} setInstructionsInput={setInstructionsInput} />
+      </section>
 
-      <InstructionsForm />
-      <InstructionsList />
+
     </div>
   );
 }
