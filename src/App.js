@@ -1,5 +1,9 @@
 import { useState } from 'react';
 import './App.css';
+import OrderNameInput from './OrderNameInput';
+import OrderImages from './OrderImages';
+import InstructionsForm from './InstructionsForm';
+import InstructionsList from './InstructionsList';
 
 function App() {
 
@@ -9,24 +13,16 @@ function App() {
   const [drinkId, setDrinkId] = useState(1);
   const [instructions, setInstructions] = useState(['']);
 
+  function handleNameChange(e) {
+    setOrderName(e.target.value);
+  }
 
-  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <OrderNameInput handleNameChange={handleNameChange}/>
+      <OrderImages foodId={foodId} sideId={sideId} drinkId={drinkId} />
+      <InstructionsForm />
+      <InstructionsList />
     </div>
   );
 }
