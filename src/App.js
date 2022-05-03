@@ -19,7 +19,10 @@ function App() {
 
   return (
     <div className="App">
-      <OrderNameInput handleNameChange={handleNameChange}/>
+      <header>
+        Hello {orderName} !
+        <OrderNameInput handleNameChange={handleNameChange}/>
+      </header>
       <OrderImages foodId={foodId} sideId={sideId} drinkId={drinkId} />
       <InstructionsForm />
       <InstructionsList />
