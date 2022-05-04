@@ -25,7 +25,7 @@ function App() {
     e.preventDefault();
     instructions.push(instructionsInput);
     setInstructions([...instructions]);
-    setInstructionsInput('');
+    e.target.reset();
     
   }
 
@@ -48,7 +48,7 @@ function App() {
       </section>
 
       <section className='notes'>
-        <InstructionsList />
+        <InstructionsList instructions={instructions} />
         <InstructionsForm handleSubmit={handleSubmit} setInstructionsInput={setInstructionsInput} />
       </section>
 

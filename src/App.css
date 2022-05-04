@@ -50,6 +50,10 @@ img {
 }
 
 .dropdown {
+  margin: 20px;
+}
+
+.notes {
   margin: 50px;
 }
 
