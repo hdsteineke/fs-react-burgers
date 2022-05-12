@@ -1,23 +1,58 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import OrderNameInput from './OrderNameInput';
+import OrderImages from './OrderImages';
+import InstructionsForm from './InstructionsForm';
+import InstructionsList from './InstructionsList';
+import FoodDropdown from './FoodDropdown';
+import SideDropdown from './SideDropdown';
+import DrinkDropdown from './DrinkDropdown';
 
 function App() {
+
+  const [orderName, setOrderName] = useState('');
+  const [foodId, setFoodId] = useState(1);
+  const [sideId, setSideId] = useState(1);
+  const [drinkId, setDrinkId] = useState(1);
+  const [instructions, setInstructions] = useState(['']);
+  const [instructionsInput, setInstructionsInput] = useState('');
+
+  function handleNameChange(e) {
+    setOrderName(e.target.value);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    instructions.push(instructionsInput);
+    setInstructions([...instructions]);
+    e.target.reset();
+    
+  }
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header>
+        <h2>
+        Hello {orderName} !
+        </h2>
+        <OrderNameInput handleNameChange={handleNameChange}/>
       </header>
+      <OrderImages foodId={foodId} sideId={sideId} drinkId={drinkId} />
+      
+      <section className="selectors">
+        <FoodDropdown setFoodId={setFoodId} />
+        <SideDropdown setSideId={setSideId} />
+        <DrinkDropdown setDrinkId={setDrinkId} />
+      </section>
+
+      <section className='notes'>
+        <InstructionsList instructions={instructions} />
+        <InstructionsForm handleSubmit={handleSubmit} setInstructionsInput={setInstructionsInput} />
+      </section>
+
+
     </div>
   );
 }
